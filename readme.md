@@ -1,25 +1,20 @@
-## Laravel PHP Framework
+# Project wagenpark
+###### door Aran Kieskamp
+------
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Installatie:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+benodigd heden:
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+- [composer](https:://getcomposer.org/)
+- een sql server
+- php5.5/hoger of een webserver
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
-
-### Contributing To Laravel
-
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+1. U moet aan de rechterkant van mijn [github page](https://github.com/aranna00/wagenpark) op download ZIP klikken
+2. Pak de [zip](https://github.com/aranna00/wagenpark/archive/master.zip) uit, dit hoeft niet in uw www map
+3. Maak een database aan en zet de naam+wachtwoord in **/app/config/database.php**
+ * of maak een database 'wagenpark' aan met het wachtwoord 'Nyc9A4sHWYmUAGMW'
+4. Voer daarna in de uitgepakte folder **composer update** uit
+5. voer **php artisan migrate --seed** uit
+6. als u een eigen webserver heeft kunt u die gebruiken, anders, als u php5.5 of hoger heeft, kunt u **php artisan serve** uitvoeren.
+   deze kunt u bereiken met localhost:8000
