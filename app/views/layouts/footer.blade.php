@@ -1,0 +1,1 @@
+C:\wamp\www\wagenpark2\app/views/layouts/footer.blade.php
