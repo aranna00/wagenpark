@@ -6,8 +6,8 @@
             </div>
             <!-- END SIDEBAR TOGGLER BUTTON -->
         </li>
-        <li class="start @if(Request::is('admin')) {{ 'active' }} @endif ">
-            <a href="{{ URL::action('admin\HomeController@index') }}">
+        <li class="start @if(Request::is('')) {{ 'active' }} @endif ">
+            <a href="{{ URL::action('HomeController@index') }}">
                 {{ FA::icon('home') }}
                 <span class="title">
                     Dashboard

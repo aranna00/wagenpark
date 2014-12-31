@@ -1,14 +1,14 @@
 <HTML lang="nl" class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @include('admin.layouts.includes')
-    @yield('title')
+    @include('layouts.includes')
+    <title>{{ $title }}</title>
 </head>
 <body class="page-header-fixed page-sidebar-fixed">
 <!-- BEGIN HEADER -->
 @if(!Request::is('login'))
     <div class="header navbar navbar-inverse navbar-fixed-top">
-        @include('admin.layouts.header')
+        @include('layouts.header')
     </div>
     @endif
             <!-- END HEADER -->
@@ -18,7 +18,7 @@
         <!-- BEGIN SIDEBAR -->
         @if(!Request::is('login'))
             <div class="page-sidebar-wrapper">
-                @include('admin.layouts.sidebar')
+                @include('layouts.sidebar')
             </div>
             @endif
                     <!-- END SIDEBAR -->
