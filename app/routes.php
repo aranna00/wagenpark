@@ -11,4 +11,7 @@
 |
 */
 
-Route::resource('','HomeController',['only'=>'index']);
+	Route::resource('login','LoginController',['only'=>['index','store','destroy']]);
+	Route::resource('home','HomeController',['only'=>['index']]);
+	Route::resource('','HomeController',['only'=>['index']]);
+	Route::any('forgotten',['uses'=>'UserController@forgotten','as'=>'password.forgotten']);

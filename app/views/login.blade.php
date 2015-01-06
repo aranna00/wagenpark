@@ -1,5 +1,5 @@
 <head>
-    @include('admin.layouts.includes')
+    @include('layouts.includes')
     {{ HTML::style('template/plugins/uniform/css/uniform.default.css') }}
     {{ HTML::style('template/plugins/select2/select2.css') }}
     {{ HTML::style('template/plugins/select2/select2-metronic.css') }}
@@ -11,7 +11,7 @@
 </div>
 <div class="content">
     {{ Form::open(['action'=>'LoginController@store','class'=>'login-form']) }}
-    <h3 class="form-title">Log in je admin account</h3>
+    <h3 class="form-title">Log in je account</h3>
     <div class="alert alert-danger display-hide">
         <button class="close" data-close="alert"></button>
                 <span>
@@ -41,7 +41,7 @@
     <div class="forget-password">
         <h4>Wachtwoord vergeten?</h4>
         <p>
-            Klik <a href="{{ URL::action('admin\UserController@forgotten') }}">hier</a> om je wachtwoord te resetten
+            Klik <a href="{{ URL::action('UserController@forgotten') }}">hier</a> om je wachtwoord te resetten
         </p>
 
     </div>
