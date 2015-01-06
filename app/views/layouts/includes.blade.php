@@ -14,6 +14,9 @@
 {{ HTML::style('template/plugins/data-tables/DT_bootstrap.css') }}
 
 {{ HTML::script('template/plugins/jquery-1.10.2.min.js') }}
+{{ HTML::script('template/plugins/moment.min.js') }}
+{{ HTML::script('template/plugins/respond.min.js') }}
+
 
 {{ HTML::script('template/plugins/data-tables/jquery.dataTables.js') }}
 {{ HTML::script('assets/ckeditor/ckeditor.js') }}

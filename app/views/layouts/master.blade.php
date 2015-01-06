@@ -25,12 +25,8 @@
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <div class="page-content">
-                    @if($errors->any())
-                        <div class="errors clearfix">
-                            <ul>
-                                {{ implode('',$errors->all('<li>:message</li>')) }}
-                            </ul>
-                        </div>
+                    @if($errors->first('notice')!=='')
+                        {{ $errors->first('notice') }}
                     @endif
                     @yield('content')
                 </div>
@@ -64,6 +60,7 @@
     {{ HTML::script('template/plugins/data-tables/DT_bootstrap.js') }}
     {{ HTML::script('bootstrap/dist/js/bootstrap.min.js') }}
     {{ HTML::script('template/scripts/core/app.js') }}
+    {{ HTML::script('assets/javascript/custom.js') }}
 
 
 

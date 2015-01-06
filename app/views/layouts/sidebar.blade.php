@@ -6,15 +6,23 @@
             </div>
             <!-- END SIDEBAR TOGGLER BUTTON -->
         </li>
-        <li class="start @if(Request::is('')) {{ 'active' }} @endif ">
+        <li class="start @if(Request::is('')||Request::is('home')) {{ 'active' }} @endif ">
             <a href="{{ URL::action('HomeController@index') }}">
                 {{ FA::icon('home') }}
                 <span class="title">
                     Dashboard
                 </span>
-                <span class="@if(Request::is('admin')) {{ 'selected' }} @endif ">
+            </a>
+        </li>
+        @if(true)
+        <li class="start @if(Request::is('users')||Request::is('users/*')){{ 'active' }} @endif ">
+            <a href="{{ URL::action('UserController@index') }}">
+                {{ FA::icon('users') }}
+                <span class="title">
+                    Users
                 </span>
             </a>
         </li>
+        @endif
     </ul>
 </div>

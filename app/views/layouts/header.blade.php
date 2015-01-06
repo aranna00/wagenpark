@@ -8,7 +8,7 @@
     <!-- END LOGO -->
     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
     <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <img src="{{ URL::asset('assets/template/img/menu-toggler.png') }}" alt="" />
+        <img src="{{ URL::asset('template/img/menu-toggler.png') }}" alt="" />
     </a>
     <!-- END RESPONSIVE MENU TOGGLER -->
     <!-- BEGIN TOP NAVIGATION MENU -->
