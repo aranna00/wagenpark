@@ -79,3 +79,6 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+	$throttelProvider = Sentry::getThrottleProvider();
+	$throttelProvider->enable();

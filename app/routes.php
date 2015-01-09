@@ -11,8 +11,11 @@
 |
 */
 
-	Route::resource('login','LoginController',['only'=>['index','store','destroy']]);
-	Route::resource('home','HomeController',['only'=>['index']]);
-	Route::resource('users','UserController',['except'=>'show']);
-	Route::resource('','HomeController',['only'=>['index']]);
 	Route::any('forgotten',['uses'=>'UserController@forgotten','as'=>'password.forgotten']);
+	Route::resource('login', 'LoginController', ['only' => ['index', 'store', 'destroy']]);
+
+	Route::group(['before'=>'Sentry'],function() {
+		Route::resource('home', 'HomeController', ['only' => ['index']]);
+		Route::resource('users', 'UserController', ['except' => 'show']);
+		Route::resource('', 'HomeController', ['only' => ['index']]);
+	});
