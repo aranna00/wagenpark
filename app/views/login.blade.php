@@ -18,14 +18,14 @@
                     Voer email en wachtwoord in
                 </span>
     </div>
-    <div class="form-group">
+    <div class="form-group @if($errors->first('email')!=='') has-error @endif">
         {{ Form::label('email','Mail addres: ',['class'=>"control-label visible-ie8 visible-ie9"]) }}
         <div class="input-icon">
             {{ FA::icon('user') }}
             {{ Form::email('email',"",["class"=>"form-control placeholder-no-fix",'placeholder'=>'Email','autocomplete'=>'off']) }}
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group @if($errors->first('password')!=='') has-error @endif">
         {{ Form::label('password','Password: ',['class'=>"control-label visible-ie8 visible-ie9"]) }}
         <div class="input-icon">
             {{ FA::icon('lock') }}
@@ -34,7 +34,7 @@
     </div>
     <div class="form-actions">
         {{ Form::label('remember', 'Onthoud mij' ,['class'=>'checkbox']) }}
-        {{ Form::checkbox('remember'    ) }}
+        {{ Form::checkbox('remember') }}
         {{ Form::submit('login',['class'=>'btn green pull-right']) }}
     </div>
     <div class="login-options"></div>
