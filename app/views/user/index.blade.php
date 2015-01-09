@@ -50,8 +50,11 @@
                                 <a href="{{ URL::action('UserController@edit', $user->id) }}">{{ FA::icon('edit') }}</a>
                                 <a href="javascript:if(window.confirm('Are you sure?'))
                                                     {
-                                                        window.location.assign('{{ URL::action('UserController@destroy',$user->id) }}')
-                                                    }">{{ FA::icon('remove') }}
+                                                        console.log('{{ $user->id }}');
+                                                        $.post('{{ URL::action('UserController@destroy',$user->id) }}',{_method:'method'});
+                                                        location.reload();
+                                                    }">
+                                    {{ FA::icon('remove') }}
                                 </a>
                             </td>
                         </tr>
