@@ -71,7 +71,9 @@ class UserController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = Sentry::findUserById($id);
+		$title = "$user->first_name $user->last_name";
+		return View::make('user.edit',['title'=>$title,'user'=>$user]);
 	}
 
 
@@ -88,11 +90,12 @@ class UserController extends \BaseController {
 			                             'first_name'    => ['required', 'alpha'],
 			                             'last_name'     => ['required', 'alpha'],
 			                             'email'         => ['required', 'email'],
-			                             'password'      => ['required', '']
+			                             'password'      => ['confirmed'],
+		                                 'password_confirmation'    => ['same:password']
 		                             ]);
 		if($validator->fails())
 		{
-			return Redirect::action('UsersController@edit',$id)->withErrors($validator)->withInput(Input::except('password'));
+			return Redirect::action('UserController@edit',$id)->withErrors($validator)->withInput(Input::except('password'));
 		}
 		else {
 			try
@@ -105,6 +108,7 @@ class UserController extends \BaseController {
 				if(Input::get('password')!=='') {
 					$user->password = Input::get('password');
 				}
+				return Redirect::action('UserController@index')->withErrors(['notice'=>"The user $user->email has been updated"]);
 			}
 			catch (Cartalyst\Sentry\Users\UserExistsException $e) {
 				return Redirect::action('UserController@edit',$id)->withErrors('User with this login already exists')->withInput(Input::except('password'));
