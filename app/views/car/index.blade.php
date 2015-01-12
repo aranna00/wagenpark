@@ -47,11 +47,11 @@
                             <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->dealer_id }}</a></td>
                             <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->user_id }}</a></td>
                             <td>
-                                <a href="{{ URL::action('CarController@edit', $user->id) }}">{{ FA::icon('edit') }}</a>
+                                <a href="{{ URL::action('CarController@edit', $car->id) }}">{{ FA::icon('edit') }}</a>
                                 <a href="javascript:if(window.confirm('Are you sure?'))
                                                     {
-                                                        console.log('{{ $user->id }}');
-                                                        $.post('{{ URL::action('CarController@destroy',$user->id) }}',{_method:'method'});
+                                                        console.log('{{ $car->id }}');
+                                                        $.post('{{ URL::action('CarController@destroy',$car->id) }}',{_method:'method'});
                                                         location.reload();
                                                     }">
                                     {{ FA::icon('remove') }}
