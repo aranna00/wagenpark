@@ -26,10 +26,10 @@
                 {{ FA::icon('angle-down') }}
             </a>
             <ul class="dropdown-menu">
-                <li><a href="{{-- URL::action('admin\UserController@show',Sentry::getUser()->id) --}}">{{ FA::icon('user') }} My Profile</a>
+                <li><a href="{{ URL::action('UserController@edit',Sentry::getUser()->id) }}">{{ FA::icon('user') }} My Profile</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="{{-- URL::action('LoginController@destroy') --}}">{{ FA::icon('key') }} Log Out</a>
+                <li><a href="{{ URL::action('LoginController@destroy') }}">{{ FA::icon('key') }} Log Out</a>
                 </li>
             </ul>
         </li>

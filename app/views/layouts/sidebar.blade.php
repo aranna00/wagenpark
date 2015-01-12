@@ -14,15 +14,15 @@
                 </span>
             </a>
         </li>
-        @if(true)
-        <li class="start @if(Request::is('users')||Request::is('users/*')){{ 'active' }} @endif ">
-            <a href="{{ URL::action('UserController@index') }}">
-                {{ FA::icon('users') }}
-                <span class="title">
-                    Users
-                </span>
-            </a>
-        </li>
+        @if(Sentry::getUser()->inGroup(Cache::get('adminGroup')))
+            <li class="start @if(Request::is('users')||Request::is('users/*')){{ 'active' }} @endif ">
+                <a href="{{ URL::action('UserController@index') }}">
+                    {{ FA::icon('users') }}
+                    <span class="title">
+                        Users
+                    </span>
+                </a>
+            </li>
         @endif
     </ul>
 </div>

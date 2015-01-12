@@ -82,3 +82,16 @@ require app_path().'/filters.php';
 
 	$throttelProvider = Sentry::getThrottleProvider();
 	$throttelProvider->enable();
+
+	if(!Cache::has('adminGroup'))
+	{
+		Cache::put('adminGroup',Sentry::findGroupByName('admin'), 1440);
+	}
+	if(!Cache::has('dealerGroup'))
+	{
+		Cache::put('dealerGroup', Sentry::findGroupByName('dealer'), 1440);
+	}
+	if(!Cache::has('userGroup'))
+	{
+		Cache::put('userGroup', Sentry::findGroupByName('user'), 1440);
+	}
