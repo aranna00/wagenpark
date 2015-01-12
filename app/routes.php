@@ -17,6 +17,7 @@
 	Route::group(['before'=>'Sentry'],function() {
 		Route::resource('home', 'HomeController', ['only' => ['index']]);
 		Route::resource('', 'HomeController', ['only' => ['index']]);
+		Route::resource('cars','CarController',['except'=>'show']);
 
 		Route::group(['before'=>'InGroup:admin'],function() {
 			Route::resource('users', 'UserController', ['except' => 'show']);
