@@ -14,4 +14,16 @@ $(document).ready(function() {
             ],
         autoWidth:false
     });
+    $('#cars').dataTable({
+        paging:true,
+        "aoCoulumns":
+            [
+                null,
+                null,
+                null,
+                null,
+                {"bSortable":false}
+            ],
+        autoWidth:false
+    });
 });

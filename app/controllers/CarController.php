@@ -9,7 +9,9 @@ class CarController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$cars = Car::all();
+		$title = 'All cars';
+		return View::make('car.index',['cars'=>$cars,'title'=>$title]);
 	}
 
 
