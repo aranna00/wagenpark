@@ -45,7 +45,7 @@
                             <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->license_plate }}</a></td>
                             <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->brand }}</a></td>
                             <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->dealer_id }}</a></td>
-                            <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->user_id }}</a></td>
+                            <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->user->email }}</a></td>
                             <td>
                                 <a href="{{ URL::action('CarController@edit', $car->id) }}">{{ FA::icon('edit') }}</a>
                                 <a href="javascript:if(window.confirm('Are you sure?'))

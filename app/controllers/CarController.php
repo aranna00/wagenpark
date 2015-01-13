@@ -9,7 +9,7 @@ class CarController extends \BaseController {
 	 */
 	public function index()
 	{
-		$cars = Car::all();
+		$cars = Car::with('user')->get();
 		$title = 'All cars';
 		return View::make('car.index',['cars'=>$cars,'title'=>$title]);
 	}
