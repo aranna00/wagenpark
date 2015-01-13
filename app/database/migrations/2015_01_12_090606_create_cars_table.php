@@ -16,7 +16,7 @@ class CreateCarsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('brand', 15);
-			$table->string('license_plate', 10);
+			$table->string('license_plate', 10)->unique();
 			$table->integer('dealer_id')->unsigned();
 			$table->integer('user_id')->unsigned();
 			$table->timestamps();
