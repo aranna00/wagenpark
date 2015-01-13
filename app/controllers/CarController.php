@@ -81,7 +81,16 @@ class CarController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$car = Car::find($id);
+		$title = 'Edit '.$car->license_plate;
+		$users_obj = Sentry::findAllUsersInGroup(Cache::get('userGroup'));
+		$users[0] = '';
+		foreach($users_obj as $user)
+		{
+			$users[$user->id] = $user->email;
+		}
+
+		return View::make('car.edit',['title'=>$title,'users'=>$users,'car'=>$car]);
 	}
 
 
@@ -93,7 +102,22 @@ class CarController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$validator = Validator::make(Input::except('_token','_method'),[
+			'license_plate'     => ['required'],
+		    'brand'             => ['required'],
+		    'dealer_id'         => ['required'],
+		    'user_id'           => ['required'],
+		]);
+		if($validator->fails())
+		{
+			return Redirect::action('CarController@edit',$id)->withErrors($validator)->withInput();
+		}
+		else
+		{
+			$car = Car::find($id);
+			$car->update(Input::except('_token','_method'));
+			return Redirect::action('CarController@index')->withErrors(['notice'=>'The Car '.$car->license_plate.' has been updated']);
+		}
 	}
 
 
@@ -105,7 +129,9 @@ class CarController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$car = Car::find($id);
+		$car->delete();
+		return Rediret::action('CarController@index')->withErrors(['notice'=>'The Car has been removed from the system']);
 	}
 
 

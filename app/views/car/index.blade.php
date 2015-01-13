@@ -14,7 +14,7 @@
                         <li>
                             {{ FA::icon('home') }}
                             <a href="{{ URL::action('HomeController@index') }}">
-                                home
+                                Home
                             </a>
                             {{ FA::icon('angle-right') }}
                         </li>
@@ -51,8 +51,8 @@
                                 <a href="javascript:if(window.confirm('Are you sure?'))
                                                     {
                                                         console.log('{{ $car->id }}');
-                                                        $.post('{{ URL::action('CarController@destroy',$car->id) }}',{_method:'method'});
-                                                        location.reload();
+                                                        $.post('{{ URL::action('CarController@destroy',$car->id) }}',{_method:'delete'});
+                                                        SetTimeout(location.reload(),2000);
                                                     }">
                                     {{ FA::icon('remove') }}
                                 </a>

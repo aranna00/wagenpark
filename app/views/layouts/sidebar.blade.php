@@ -24,5 +24,15 @@
                 </a>
             </li>
         @endif
+        @if(Sentry::getUser()->inGroup(Cache::get('dealerGroup'))||Sentry::getUser()->inGroup(Cache::get('adminGroup')))
+            <li class="start @if(Request::is('cars')||Request::is('cars/*')) active @endif">
+                <a href="{{ URL::action('CarController@index') }}">
+                    {{ FA::icon('car') }}
+                    <span class="title">
+                        Cars
+                    </span>
+                </a>
+            </li>
+        @endif
     </ul>
 </div>
