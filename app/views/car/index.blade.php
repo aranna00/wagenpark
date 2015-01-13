@@ -52,7 +52,7 @@
                                                     {
                                                         console.log('{{ $car->id }}');
                                                         $.post('{{ URL::action('CarController@destroy',$car->id) }}',{_method:'delete'});
-                                                        SetTimeout(location.reload(),2000);
+                                                        setTimeout(function(){location.reload(true)},1000);
                                                     }">
                                     {{ FA::icon('remove') }}
                                 </a>

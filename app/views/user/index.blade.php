@@ -52,7 +52,7 @@
                                                     {
                                                         console.log('{{ $user->id }}');
                                                         $.post('{{ URL::action('UserController@destroy',$user->id) }}',{_method:'method'});
-                                                        location.reload();
+                                                        setTimeout(function(){location.reload(true)},1000);
                                                     }">
                                     {{ FA::icon('remove') }}
                                 </a>
