@@ -29,7 +29,13 @@
                 <li><a href="{{ URL::action('UserController@edit',Sentry::getUser()->id) }}">{{ FA::icon('user') }} My Profile</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="{{ URL::action('LoginController@destroy') }}">{{ FA::icon('key') }} Log Out</a>
+                <li><a href="javascript:if(window.confirm('Are you sure?'))
+                                                    {
+                                                        $.post('{{ URL::action('LoginController@destroy') }}',{_method:'delete'});
+                                                        setTimeout(function(){location.reload(true)},1000);
+                                                    }">
+                    {{ FA::icon('key') }} Log out
+                </a>
                 </li>
             </ul>
         </li>
