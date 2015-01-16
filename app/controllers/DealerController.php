@@ -23,7 +23,8 @@ class DealerController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$title = 'Create new dealer';
+		return View::make('dealer.create',['title'=>$title]);
 	}
 
 	/**
@@ -34,7 +35,19 @@ class DealerController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::except('_token','_method'),
+			[
+				'name'      => ['required','alpha_num'],
+			]);
+		if($validator->fails())
+		{
+			return Redirect::action('DealerController@create')->withErrors($validator)->withInput();
+		}
+		else
+		{
+			Dealer::create(Input::except('_token','_method'));
+			return Redirect::action('DealerController@index')->withErrors(['notice'=>'The dealer '.Input::get('name').' has been added']);
+		}
 	}
 
 	/**
