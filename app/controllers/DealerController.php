@@ -10,7 +10,9 @@ class DealerController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$dealers = Dealer::all();
+		$title = 'All dealers';
+		return View::make('dealer.index',['title'=>$title,'dealers'=>$dealers]);
 	}
 
 	/**

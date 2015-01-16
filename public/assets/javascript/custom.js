@@ -26,4 +26,15 @@ $(document).ready(function() {
             ],
         autoWidth:false
     });
+    $('#dealers').dataTable({
+        paging:true,
+        "aoCoulumns":
+            [
+                null,
+                null,
+                {"bSortable":false}
+            ],
+        autoWidth:false
+    });
+
 });
