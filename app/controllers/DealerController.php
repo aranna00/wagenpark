@@ -99,7 +99,8 @@ class DealerController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$dealer = Dealer::find($id);
+		$dealer->delete();
 	}
 
 }
