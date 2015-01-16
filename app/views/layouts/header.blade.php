@@ -22,7 +22,7 @@
         <!-- BEGIN USER LOGIN DROPDOWN -->
         <li class="dropdown user">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                <span class="username">Demo</span>
+                <span class="username">{{ Sentry::getUser()->first_name }}</span>
                 {{ FA::icon('angle-down') }}
             </a>
             <ul class="dropdown-menu">
