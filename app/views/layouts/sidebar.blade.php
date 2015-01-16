@@ -14,7 +14,7 @@
                 </span>
             </a>
         </li>
-        @if(Sentry::getUser()->inGroup(Cache::get('adminGroup')))
+        @if(Session::get('adminAccess'))
             <li class="start @if(Request::is('users')||Request::is('users/*')){{ 'active' }} @endif ">
                 <a href="{{ URL::action('UserController@index') }}">
                     {{ FA::icon('users') }}
@@ -24,7 +24,7 @@
                 </a>
             </li>
         @endif
-        @if(Sentry::getUser()->inGroup(Cache::get('dealerGroup'))||Sentry::getUser()->inGroup(Cache::get('adminGroup')))
+        @if(Session::get('adminAccess')||Session::get('dealerAccess'))
             <li class="start @if(Request::is('cars')||Request::is('cars/*')) active @endif">
                 <a href="{{ URL::action('CarController@index') }}">
                     {{ FA::icon('car') }}
@@ -33,6 +33,5 @@
                     </span>
                 </a>
             </li>
-        @endif
     </ul>
 </div>
