@@ -51,18 +51,6 @@ class DealerController extends \BaseController {
 	}
 
 	/**
-	 * Display the specified resource.
-	 * GET /dealer/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
 	 * Show the form for editing the specified resource.
 	 * GET /dealer/{id}/edit
 	 *
@@ -71,7 +59,9 @@ class DealerController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$dealer = Dealer::find($id);
+		$title = "Edit $dealer->name";
+		return View::make('dealer.edit',['title'=>$title,'dealer'=>$dealer]);
 	}
 
 	/**
@@ -83,7 +73,21 @@ class DealerController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$validator = Validator::make(Input::except('_method','_token'),
+			[
+				'name'  => ['required','alpha_num'],
+			]);
+
+		if($validator->fails())
+		{
+			return Redirect::action('DealerController@edit',$id)->withErrors($validator)->withInput();
+		}
+		else
+		{
+			$dealer = Dealer::find($id);
+			$dealer->update(Input::except('_method','_token'));
+			return Redirect::action('DealerController@edit',$id)->withErrors(['notice'=>'The dealer has been updated']);
+		}
 	}
 
 	/**
