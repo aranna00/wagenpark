@@ -118,7 +118,7 @@ class UsersTableSeeder extends Seeder {
 		$user->addGroup($userGroup);
 
 		$user = Sentry::createUser([
-			                           'email'     => 'h,klaver@rocit.nl',
+			                           'email'     => 'h.klaver@rocit.nl',
 			                           'password'  => 'users',
 			                           'activated' => true,
 			                           'first_name'=> 'Harm',
