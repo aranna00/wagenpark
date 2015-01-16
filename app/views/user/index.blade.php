@@ -48,14 +48,16 @@
                             <td><a href="{{ URL::action('UserController@edit', $user->id) }}">{{ $user->last_login }}</a></td>
                             <td>
                                 <a href="{{ URL::action('UserController@edit', $user->id) }}">{{ FA::icon('edit') }}</a>
-                                <a href="javascript:if(window.confirm('Are you sure?'))
-                                                    {
-                                                        console.log('{{ $user->id }}');
-                                                        $.post('{{ URL::action('UserController@destroy',$user->id) }}',{_method:'method'});
-                                                        setTimeout(function(){location.reload(true)},1000);
-                                                    }">
-                                    {{ FA::icon('remove') }}
-                                </a>
+                                @if(Sentry::getUser()->id!==$user->id)
+                                    <a href="javascript:if(window.confirm('Are you sure?'))
+                                                        {
+                                                            console.log('{{ $user->id }}');
+                                                            $.post('{{ URL::action('UserController@destroy',$user->id) }}',{_method:'method'});
+                                                            setTimeout(function(){location.reload(true)},1000);
+                                                        }">
+                                        {{ FA::icon('remove') }}
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
