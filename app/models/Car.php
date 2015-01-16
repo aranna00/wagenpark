@@ -7,4 +7,8 @@ class Car extends \Eloquent {
 	{
 		return $this->belongsTo('User');
 	}
+	public function appointment()
+	{
+		return $this->belongsTo('Appointment');
+	}
 }
