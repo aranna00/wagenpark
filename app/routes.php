@@ -25,5 +25,6 @@
 
 		Route::group(['before'=>'InGroup:admin'],function() {
 			Route::resource('users', 'UserController', ['except' => 'show']);
+			Route::resource('dealers','DealerController',['except'=>'show']);
 		});
 	});

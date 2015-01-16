@@ -34,5 +34,15 @@
                 </a>
             </li>
         @endif
+        @if(Session::get('adminAccess'))
+            <li class="start @if(Request::is('dealers')||Request::is('dealers/*')) active @endif">
+                <a href="{{ URL::action('DealerController@index') }}">
+                    {{ FA::icon('certificate') }}
+                    <span class="title">
+                        Dealers
+                    </span>
+                </a>
+            </li>
+        @endif
     </ul>
 </div>
