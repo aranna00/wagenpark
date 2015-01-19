@@ -1,6 +1,5 @@
 {{ HTML::style('bootstrap/dist/css/bootstrap.min.css') }}
 {{ HTML::style('template/css/style-metronic.css') }}
-{{ HTML::style("http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all") }}
 {{ HTML::style('assets/css/master.css') }}
 {{ HTML::style('template/css/style.css') }}
 {{ HTML::style('template/css/style-responsive.css') }}
