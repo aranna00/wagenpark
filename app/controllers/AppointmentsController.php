@@ -9,7 +9,9 @@ class AppointmentsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$appointmens = Appointment::with('car','dealer','user')->get();
+		$title = 'All appointments';
+		return View::make('appointment.index',['appointments'=>$appointmens,'title'=>$title]);
 	}
 
 
