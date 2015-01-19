@@ -21,7 +21,7 @@
 
 		Route::group(['before'=>'InGroup:admin|dealer'],function(){
 			Route::resource('cars','CarController',['except'=>'show']);
-			Route::resource('appointments','AppointmentController',['except'=>'show']);
+			Route::resource('appointments','AppointmentsController',['except'=>'show']);
 		});
 
 		Route::group(['before'=>'InGroup:admin'],function() {
