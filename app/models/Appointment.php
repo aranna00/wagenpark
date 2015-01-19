@@ -5,15 +5,15 @@ class Appointment extends \Eloquent {
 
 	public function car()
 	{
-		return $this->hasOne('Car');
+		return $this->belongsTo('Car');
 	}
 	public function dealer()
 	{
-		return $this->hasOne('Dealer');
+		return $this->belongsTo('Dealer');
 	}
 
 	public function user()
 	{
-		return $this->hasOne('User');
+		return $this->belongsTo('User');
 	}
 }

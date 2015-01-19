@@ -9,6 +9,6 @@ class Car extends \Eloquent {
 	}
 	public function appointment()
 	{
-		return $this->belongsTo('Appointment');
+		return $this->hasOne('Appointment');
 	}
 }

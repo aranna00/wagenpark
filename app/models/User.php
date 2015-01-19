@@ -29,7 +29,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	public function appointment()
 	{
-		return $this->belongsTo('Appointment');
+		return $this->hasOne('Appointment');
 	}
 
 }
