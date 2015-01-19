@@ -100,17 +100,17 @@ Route::filter('auth.basic', function()
 
 			if( ! $user->inGroup($group))
 			{
-				return Redirect::route('LoginController@index')->withErrors(array(Lang::get('user.noaccess')));
+				return Redirect::route('HomeController@index')->withErrors(['notice'=>'You need to be an '.$value.' to access that.']);
 			}
 		}
 		catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
 		{
-			return Redirect::route('LoginController@index')->withErrors(array(Lang::get('user.notfound')));
+			return Redirect::route('HomeController@index')->withErrors(['notice'=>'You need to be an '.$value.' to access that.']);
 		}
 
 		catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
 		{
-			return Redirect::route('LoginController@index')->withErrors(array(Lang::get('group.notfound')));
+			return Redirect::route('HomeController@index')->withErrors(['notice'=>'You need to be an '.$value.' to access that.']);
 		}
 	});
 /*
