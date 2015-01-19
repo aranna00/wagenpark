@@ -16,6 +16,7 @@ class CreateAppointmentsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->dateTime('date');
+			$table->integer('price');
 			$table->integer('car_id')->unsigned();
 			$table->integer('user_id')->unsigned();
 			$table->integer('dealer_id')->unsigned();
