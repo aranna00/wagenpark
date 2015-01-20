@@ -7,4 +7,8 @@ class Dealer extends \Eloquent {
 	{
 		return $this->hasOne('Appointment');
 	}
+	public function car()
+	{
+		return $this->hasMany('Car');
+	}
 }

@@ -11,4 +11,9 @@ class Car extends \Eloquent {
 	{
 		return $this->hasOne('Appointment');
 	}
+	public function dealer()
+	{
+		return $this->belongsTo('Dealer');
+	}
+
 }
