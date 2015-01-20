@@ -36,5 +36,18 @@ $(document).ready(function() {
             ],
         autoWidth:false
     });
-
+    $('#appointments').dataTable({
+        paging:true,
+        "aoCoulumns":
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {"bSortable":false}
+            ],
+        autoWidth:false
+    });
 });
