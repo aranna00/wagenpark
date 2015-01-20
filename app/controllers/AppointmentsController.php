@@ -142,7 +142,9 @@ class AppointmentsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$appointment = Appointment::find($id);
+		$appointment->delete();
+		return Redirect::action('AppointmentsController@index')->withErrors(['notice'=>'The appointment has been removed']);
 	}
 
 
