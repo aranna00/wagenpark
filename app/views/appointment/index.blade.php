@@ -28,7 +28,7 @@
             </div>
 
             <p>
-                <a href="{{ URL::action('AppointmentsController@create') }}" class="btn btn-default">Create User</a>
+                <a href="{{ URL::action('AppointmentsController@create') }}" class="btn btn-default">Create appointment</a>
             </p>
 
             <table id="appointments" class="table table-striped table-bordered table-hover">

@@ -28,7 +28,7 @@
             </div>
 
             <p>
-                <a href="{{ URL::action('CarController@create') }}" class="btn btn-default">Create User</a>
+                <a href="{{ URL::action('CarController@create') }}" class="btn btn-default">Add car</a>
             </p>
 
             <table id="cars" class="table table-striped table-bordered table-hover">
