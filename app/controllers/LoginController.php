@@ -61,6 +61,30 @@ class LoginController extends \BaseController {
 				$credentials = Input::except('_method','_token','remember');
 				$user = Sentry::authenticate($credentials,Input::get('remember'));
 				$throttle->clearLoginAttempts();
+				if(Sentry::getUser()->inGroup(Cache::get('adminGroup')))
+				{
+					Session::put('adminAccess', true);
+				}
+				else
+				{
+					Session::put('adminAccess', false);
+				}
+				if(Sentry::getUser()->inGroup(Cache::get('dealerGroup')))
+				{
+					Session::put('dealerAccess', true);
+				}
+				else
+				{
+					Session::put('dealerAccess', true);
+				}
+				if(Sentry::getUser()->inGroup(Cache::get('userGroup')))
+				{
+					Session::put('userAccess', true);
+				}
+				else
+				{
+					Session::put('dealerAccess', true);
+				}
 				return Redirect::action('HomeController@index');
 			}
 			catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {

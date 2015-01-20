@@ -45,8 +45,8 @@
             </li>
         @endif
         @if(Session::get('dealerAccess')||Session::get('adminAccess'))
-            <li class="start @if(Request::is('appointment')||Request::is('appointment/*')) active @endif">
-                <a href="{{ URL::action('AppointmentController@index') }}">
+            <li class="start @if(Request::is('appointments')||Request::is('appointments/*')) active @endif">
+                <a href="{{ URL::action('AppointmentsController@index') }}">
                     {{ FA::icon('calendar') }}
                     <span class="title">
                         Appointments
