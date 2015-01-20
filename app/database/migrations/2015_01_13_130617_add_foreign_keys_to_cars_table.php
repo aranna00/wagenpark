@@ -30,7 +30,7 @@ class AddForeignKeysToCarsTable extends Migration {
 	{
 		Schema::table('cars', function(Blueprint $table)
 		{
-			$table->dropForeign('car_user_id_foreign');
+			$table->dropForeign('cars_user_id_foreign');
 		});
 	}
 

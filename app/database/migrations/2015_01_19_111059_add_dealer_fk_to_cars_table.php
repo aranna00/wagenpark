@@ -30,7 +30,7 @@ class AddDealerFkToCarsTable extends Migration {
 	{
 		Schema::table('cars', function(Blueprint $table)
 		{
-			$table->dropForeign('car_dealer_id_foreign');
+			$table->dropForeign('cars_dealer_id_foreign');
 		});
 	}
 
