@@ -17,7 +17,11 @@ class HomeController extends BaseController {
 
 	Public function index()
 	{
-		Return View::make('home',['title'=>'Dashboard']);
+		$cars = Car::all();
+		$users = User::all();
+		$dealers = Dealer::all();
+		$appointments = Appointment::all();
+		Return View::make('home',['title'=>'Dashboard','cars'=>$cars,'users'=>$users,'dealers'=>$dealers,'appointments'=>$appointments]);
 	}
 
 }

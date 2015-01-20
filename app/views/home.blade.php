@@ -27,20 +27,75 @@
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
             <div class="dashboard-stat blue">
                 <div class="visual">
-                    {{ FA::icon('birthday-cake') }}
+                    {{ FA::icon('car') }}
                 </div>
                 <div class="details">
                     <div class="number">
-                        5
+                        {{ count($cars) }}
                     </div>
                     <div class="desc">
-                        voorbeeld stats
+                        Total amount of cars
                     </div>
                 </div>
-                <a class="more" href="">
-                    Bekijk alle <i class="m-icon-swapright m-icon-white"></i>
+                <a class="more" href="{{ URL::action('CarController@index') }}">
+                    Show all <i class="m-icon-swapright m-icon-white"></i>
                 </a>
             </div>
         </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="dashboard-stat red">
+                <div class="visual">
+                    {{ FA::icon('users') }}
+                </div>
+                <div class="details">
+                    <div class="number">
+                        {{ count($users) }}
+                    </div>
+                    <div class="desc">
+                        Total amount of users
+                    </div>
+                </div>
+                <a class="more" href="{{ URL::action('UserController@index') }}">
+                    Show all <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="dashboard-stat green">
+                <div class="visual">
+                    {{ FA::icon('certificate') }}
+                </div>
+                <div class="details">
+                    <div class="number">
+                        {{ count($dealers) }}
+                    </div>
+                    <div class="desc">
+                        Total amount of dealers
+                    </div>
+                </div>
+                <a class="more" href="{{ URL::action('DealerController@index') }}">
+                    Show all <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="dashboard-stat purple">
+                <div class="visual">
+                    {{ FA::icon('calendar') }}
+                </div>
+                <div class="details">
+                    <div class="number">
+                        {{ count($appointments) }}
+                    </div>
+                    <div class="desc">
+                        Total amount of appointments
+                    </div>
+                </div>
+                <a class="more" href="{{ URL::action('AppointmentsController@index') }}">
+                    Show all <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
 @endsection
