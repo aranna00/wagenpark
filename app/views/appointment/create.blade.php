@@ -19,8 +19,9 @@
                 onClick: function(target, cell, date, data) {
                     if(data == null)
                     {
+                        var month = date.getMonth()+1;
                         target.val(date.getFullYear() + '/' +
-                        date.getMonth()+1 + '/' +
+                        month+ '/' +
                         date.getDate());
                     }
                     else{
@@ -85,7 +86,7 @@
                     <div class="form-group @if($errors->first('price')!=='') has-error @endif">
                         {{ HTML::decode(Form::label('price','Price <span class="required">*</span>',['class'=>'control-label col-md-3'])) }}
                         <div class="col-md-4">
-                            {{ HTML::decode(Form::number('price','',['class'=>'form-control','id'=>'price'])) }}
+                            {{ HTML::decode(Form::number('price','',['class'=>'form-control','id'=>'price','step'=>"0.01","min"=>0])) }}
                             <span class="help-block">{{ $errors->first('price') }}</span>
                         </div>
                     </div>

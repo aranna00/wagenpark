@@ -45,7 +45,7 @@ class AppointmentsController extends \BaseController {
 		$data = Input::except('token','method');
 		$validator = Validator::make($data,
 			[
-				'date'      => ['required','after:'.date('Y,m,d',strtotime('+1 day')).''],
+//				'date'      => ['required','after:'.date('Y,m,d',strtotime('+1 day')).''],
 			    'car_id'    => ['required','min:0'],
 			    'price'     => ['required','min:0'],
 			]);
