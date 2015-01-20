@@ -61,6 +61,8 @@ class AppointmentsController extends \BaseController {
 			$data['workshop'] = $car->workshop;
 
 			Appointment::create($data);
+
+			return Redirect::action('AppointmentsController@index')->withErrors(['notice'=>'The appointment has been made']);
 		}
 	}
 
@@ -85,7 +87,17 @@ class AppointmentsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$cars_obj = Car::with('dealer','user')->get();
+		$cars[0] = '';
+		foreach ($cars_obj as $car)
+		{
+			$cars[$car->id] = $car->license_plate;
+		}
+		$appointments = Appointment::with('user')->get();
+		$appointment = Appointment::find($id);
+
+		$title = 'Edit appointment';
+		return View::make('appointment.edit',['appointment'=>$appointment,'cars'=>$cars,'appointments'=>$appointments,'title'=>$title]);
 	}
 
 
@@ -97,7 +109,28 @@ class AppointmentsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$data = Input::except('token','method');
+		$validator = Validator::make($data,
+		                             [
+			                             'date'      => ['required','after:'.date('Y,m,d',strtotime('+1 day')).''],
+			                             'car_id'    => ['required','min:0'],
+			                             'price'     => ['required','min:0'],
+		                             ]);
+		if($validator->fails())
+		{
+			return Redirect::action('AppointmentsController@edit',$id)->withErrors($validator)->withInput();
+		}
+		else
+		{
+			$car = Car::find($data['car_id']);
+			$data['dealer_id'] = $car->dealer->id;
+			$data['user_id'] = $car->user->id;
+			$data['workshop'] = $car->workshop;
+
+			$appointment = Appointment::find($id);
+			$appointment->update($data);
+			return Redirect::action('AppointmentsController@index')->withErrors(['notice'=>'The appointment has been changed']);
+		}
 	}
 
 
