@@ -85,7 +85,7 @@
                     <div class="form-group @if($errors->first('price')!=='') has-error @endif">
                         {{ HTML::decode(Form::label('price','Price <span class="required">*</span>',['class'=>'control-label col-md-3'])) }}
                         <div class="col-md-4">
-                            {{ HTML::decode(Form::number('price',$appointment->price,['class'=>'form-control','id'=>'price'])) }}
+                            {{ HTML::decode(Form::number('price',round($appointment->price,2),['class'=>'form-control','id'=>'price'])) }}
                             <span class="help-block">{{ $errors->first('price') }}</span>
                         </div>
                     </div>

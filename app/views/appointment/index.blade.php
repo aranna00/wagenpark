@@ -45,7 +45,7 @@
                 @foreach($appointments AS $appointment)
                     <tr>
                         <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->date }}</a></td>
-                        <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->price }}</a></td>
+                        <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ round($appointment->price,2) }}</a></td>
                         <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->user->email }}</a></td>
                         <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->car->license_plate }}</a></td>
                         <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->dealer->name }}</a></td>
