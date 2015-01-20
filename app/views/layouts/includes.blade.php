@@ -11,10 +11,14 @@
 {{ HTML::style('assets/font-awesome/css/font-awesome.min.css') }}
 {{ FA::css('assets/font-awesome/css/font-awesome.min.css') }}
 {{ HTML::style('template/plugins/data-tables/DT_bootstrap.css') }}
+{{ HTML::style('assets/css/styles/glDatePicker.darkneon.css') }}
+{{ HTML::style('assets/css/styles/glDatePicker.default.css') }}
+{{ HTML::style('assets/css/styles/glDatePicker.flatwhite.css') }}
 
 {{ HTML::script('template/plugins/jquery-1.10.2.min.js') }}
 {{ HTML::script('template/plugins/moment.min.js') }}
 {{ HTML::script('template/plugins/respond.min.js') }}
+{{ HTML::script('assets/javascript/glDatePicker.min.js') }}
 
 
 {{ HTML::script('template/plugins/data-tables/jquery.dataTables.js') }}
