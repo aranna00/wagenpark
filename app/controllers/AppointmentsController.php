@@ -45,7 +45,7 @@ class AppointmentsController extends \BaseController {
 		$data = Input::except('token','method');
 		$validator = Validator::make($data,
 			[
-//				'date'      => ['required','after:'.date('Y,m,d',strtotime('+1 day')).''],
+				'date'      => ['required','after:'.date('Y,m,d',strtotime('+1 day')).''],
 			    'car_id'    => ['required','min:0'],
 			    'price'     => ['required','min:0'],
 			]);
@@ -97,7 +97,7 @@ class AppointmentsController extends \BaseController {
 		$appointment = Appointment::find($id);
 
 		$title = 'Edit appointment';
-		return View::make('appointment.edit',['appointment'=>$appointment,'cars'=>$cars,'appointments'=>$appointments,'title'=>$title]);
+		return View::make('appointment.edit',['this_appointment'=>$appointment,'cars'=>$cars,'appointments'=>$appointments,'title'=>$title]);
 	}
 
 

@@ -63,13 +63,13 @@
                 </div>
             </div>
             <div class="portlet-body form">
-                {{ Form::open(['action'=>['AppointmentsController@update',$appointment->id],'class'=>'form-horizontal','method'=>'put']) }}
+                {{ Form::open(['action'=>['AppointmentsController@update',$this_appointment->id],'class'=>'form-horizontal','method'=>'put']) }}
                 <div class="form-body">
 
                     <div class="form-group @if($errors->first('date')!=='') has-error @endif">
                         {{ HTML::decode(Form::label('date','Date <span class="required">*</span>',['class'=>'control-label col-md-3'])) }}
                         <div class="col-md-4">
-                            {{ Form::text('date',$appointment->date,['class'=>'form-control','id'=>'date']) }}
+                            {{ Form::text('date',$this_appointment->date,['class'=>'form-control','id'=>'date']) }}
                             <span class="help-block">{{ $errors->first('date') }}</span>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="form-group @if($errors->first('car_id')!=='') has-error @endif">
                         {{ HTML::decode(Form::label('car_id','License plate <span class="required">*</span>',['class'=>'control-label col-md-3'])) }}
                         <div class="col-md-4">
-                            {{ Form::select('car_id',$cars,$appointment->car_id) }}
+                            {{ Form::select('car_id',$cars,$this_appointment->car_id) }}
                             <span class="help-block">{{ $errors->first('car_id') }}</span>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                     <div class="form-group @if($errors->first('price')!=='') has-error @endif">
                         {{ HTML::decode(Form::label('price','Price <span class="required">*</span>',['class'=>'control-label col-md-3'])) }}
                         <div class="col-md-4">
-                            {{ HTML::decode(Form::number('price',round($appointment->price,2),['class'=>'form-control','id'=>'price'])) }}
+                            {{ HTML::decode(Form::number('price',round($this_appointment->price,2),['class'=>'form-control','id'=>'price'])) }}
                             <span class="help-block">{{ $errors->first('price') }}</span>
                         </div>
                     </div>
