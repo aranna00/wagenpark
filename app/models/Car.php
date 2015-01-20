@@ -16,4 +16,8 @@ class Car extends \Eloquent {
 		return $this->belongsTo('Dealer');
 	}
 
+	public static function findCarByLicense($license)
+	{
+		return $cars = DB::table('cars')->select('*')->where(['license_plate'=>$license])->first();
+	}
 }
