@@ -21,7 +21,12 @@ class HomeController extends BaseController {
 		$users = User::all();
 		$dealers = Dealer::all();
 		$appointments = Appointment::all();
-		Return View::make('home',['title'=>'Dashboard','cars'=>$cars,'users'=>$users,'dealers'=>$dealers,'appointments'=>$appointments]);
+		$amount = 0;
+		foreach($appointments AS $appointment)
+		{
+			$amount = $amount + $appointment->price;
+		}
+		Return View::make('home',['title'=>'Dashboard','amount'=>$amount,'cars'=>$cars,'users'=>$users,'dealers'=>$dealers,'appointments'=>$appointments]);
 	}
 
 }
