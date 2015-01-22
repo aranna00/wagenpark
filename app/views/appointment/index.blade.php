@@ -39,28 +39,39 @@
                     <th>car license plate</th>
                     <th>dealer</th>
                     <th>workshop</th>
-                    <th>actions</th>
+                    @if(!Session::get('userAccess'))
+                        <th>actions</th>
+                    @endif
                 </thead>
                 <tbody>
                 @foreach($appointments AS $appointment)
                     <tr>
-                        <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->date }}</a></td>
-                        <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ round($appointment->price,2) }}</a></td>
-                        <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->user->email }}</a></td>
-                        <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->car->license_plate }}</a></td>
-                        <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->dealer->name }}</a></td>
-                        <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->workshop }}</a></td>
-                        <td>
-                            <a href="{{ URL::action('AppointmentsController@edit', $appointment->id) }}">{{ FA::icon('edit') }}</a>
-                            <a href="javascript:if(window.confirm('Are you sure?'))
+                        @if(!Session::get('userAccess'))
+                            <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->date }}</a></td>
+                            <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ round($appointment->price,2) }}</a></td>
+                            <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->user->email }}</a></td>
+                            <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->car->license_plate }}</a></td>
+                            <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->dealer->name }}</a></td>
+                            <td><a href="{{ URL::action('AppointmentsController@edit',$appointment->id) }}">{{ $appointment->workshop }}</a></td>
+                            <td>
+                                <a href="{{ URL::action('AppointmentsController@edit', $appointment->id) }}">{{ FA::icon('edit') }}</a>
+                                <a href="javascript:if(window.confirm('Are you sure?'))
                                                     {
                                                         console.log('{{ $appointment->id }}');
                                                         $.post('{{ URL::action('AppointmentsController@destroy',$appointment->id) }}',{_method:'delete'});
                                                         setTimeout(function(){location.reload(true)},1000);
                                                     }">
-                                {{ FA::icon('remove') }}
-                            </a>
-                        </td>
+                                    {{ FA::icon('remove') }}
+                                </a>
+                            </td>
+                        @else
+                            <td>{{ $appointment->date }}</td>
+                            <td>{{ round($appointment->price,2) }}</td>
+                            <td>{{ $appointment->user->email }}</td>
+                            <td>{{ $appointment->car->license_plate }}</td>
+                            <td>{{ $appointment->dealer->name }}</td>
+                            <td>{{ $appointment->workshop }}</td>
+                        @endif
                     </tr>
                 @endforeach
                 </tbody>

@@ -19,9 +19,10 @@
 		Route::resource('home', 'HomeController', ['only' => ['index']]);
 		Route::resource('', 'HomeController', ['only' => ['index']]);
 		Route::resource('appointments','AppointmentsController',['only'=>'index']);
+		Route::resource('cars','CarController',['only'=>'index']);
 
-		Route::group(['before'=>'InGroup:admin|dealer'],function(){
-			Route::resource('cars','CarController',['except'=>'show']);
+		Route::group(['before'=>'InGroup:dealers|InGroup:admin'],function(){
+			Route::resource('cars','CarController',['except'=>'show|index']);
 			Route::resource('appointments','AppointmentsController',['except'=>'show|index']);
 		});
 

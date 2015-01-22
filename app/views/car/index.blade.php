@@ -37,14 +37,17 @@
                     <th>brand</th>
                     <th>dealer</th>
                     <th>user</th>
-                    <th>actions</th>
+                    @if(!Session::get('userAccess'))
+                        <th>actions</th>
+                    @endif
                 </thead>
                 <tbody>
                     @foreach($cars AS $car)
                         <tr>
+                            @if(!Session::get('userAccess'))
                             <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->license_plate }}</a></td>
                             <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->brand }}</a></td>
-                            <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->dealer_id }}</a></td>
+                            <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->dealer->name }}</a></td>
                             <td><a href="{{ URL::action('CarController@edit',$car->id) }}">{{ $car->user->email }}</a></td>
                             <td>
                                 <a href="{{ URL::action('CarController@edit', $car->id) }}">{{ FA::icon('edit') }}</a>
@@ -57,6 +60,12 @@
                                     {{ FA::icon('remove') }}
                                 </a>
                             </td>
+                            @else
+                                <td>{{ $car->license_plate }}</td>
+                                <td>{{ $car->brand }}</td>
+                                <td>{{ $car->dealer->name }}</td>
+                                <td>{{ $car->user->email }}</td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>
