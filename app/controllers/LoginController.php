@@ -121,6 +121,7 @@ class LoginController extends \BaseController {
 	public function destroy()
 	{
 		Sentry::logout();
+		Session::flush();
 	}
 
 
