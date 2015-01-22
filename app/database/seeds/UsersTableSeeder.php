@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder {
 		$user = Sentry::createUser([
 			'email'     => 'aranna00@gmail.com',
 		    'password'  => 'test',
-		    'activated'  => 'true',
+		    'activated'  => true,
 		    'first_name'=> 'Aran',
 		    'last_name' => 'Kieskamp'
 		                           ]);
@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder {
 		$user = Sentry::createUser([
 		   'email'     => 'info@dealerschaap.nl',
 		   'password'  => 'dealers',
-		   'activated'  => 'true',
+		   'activated'  => true,
 		   'first_name'=> 'Lisa',
 		   'last_name' => 'Schaap'
 		]);
@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder {
 		$user = Sentry::createUser([
 			                           'email'     => 'info@dealerbrederode.nl',
 			                           'password'  => 'dealers',
-			                           'activated'  => 'true',
+			                           'activated'  => true,
 			                           'first_name'=> 'Steven',
 			                           'last_name' => 'Brederode'
 		                           ]);
@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder {
 		$user = Sentry::createUser([
 			                           'email'     => 'info@dealerorsouw.nl',
 			                           'password'  => 'dealers',
-			                           'activated'  => 'true',
+			                           'activated'  => true,
 			                           'first_name'=> 'Floris',
 			                           'last_name' => 'Orsouw'
 		                           ]);
@@ -48,7 +48,7 @@ class UsersTableSeeder extends Seeder {
 		$user = Sentry::createUser([
 			                           'email'     => 'info@dealermudde.nl',
 			                           'password'  => 'dealers',
-			                           'activated'  => 'true',
+			                           'activated'  => true,
 			                           'first_name'=> 'Robert',
 			                           'last_name' => 'Mudde'
 		                           ]);
@@ -57,7 +57,7 @@ class UsersTableSeeder extends Seeder {
 		$user = Sentry::createUser([
 			                           'email'     => 'info@dealerjacobsen.nl',
 			                           'password'  => 'dealers',
-			                           'activated'  => 'true',
+			                           'activated'  => true,
 			                           'first_name'=> 'Nico',
 			                           'last_name' => 'jacobsen'
 		                           ]);
@@ -66,7 +66,7 @@ class UsersTableSeeder extends Seeder {
 		$user = Sentry::createUser([
 			                           'email'     => 'info@dealerwensink.nl',
 			                           'password'  => 'dealers',
-			                           'activated'  => 'true',
+			                           'activated'  => true,
 			                           'first_name'=> 'Peter',
 			                           'last_name' => 'wensink'
 		                           ]);
@@ -75,7 +75,7 @@ class UsersTableSeeder extends Seeder {
 		$user = Sentry::createUser([
 			                           'email'     => 'info@dealerjansen.nl',
 			                           'password'  => 'dealers',
-			                           'activated'  => 'true',
+			                           'activated'  => true,
 			                           'first_name'=> 'Laura',
 			                           'last_name' => 'Jansen'
 		                           ]);
@@ -84,7 +84,7 @@ class UsersTableSeeder extends Seeder {
 		$user = Sentry::createUser([
 			                           'email'     => 'info@dealerduursma.nl',
 			                           'password'  => 'dealers',
-			                           'activated'  => 'true',
+			                           'activated'  => true,
 			                           'first_name'=> 'Danny',
 			                           'last_name' => 'Schaap'
 		                           ]);
