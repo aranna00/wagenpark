@@ -23,6 +23,7 @@
         <div class="input-icon">
             {{ FA::icon('user') }}
             {{ Form::email('email',"",["class"=>"form-control placeholder-no-fix",'placeholder'=>'Email','autocomplete'=>'off']) }}
+            <span class="help-block">{{ $errors->first('email') }}</span>
         </div>
     </div>
     <div class="form-group @if($errors->first('password')!=='') has-error @endif">
@@ -30,6 +31,7 @@
         <div class="input-icon">
             {{ FA::icon('lock') }}
             {{ Form::password('password',['class'=>'form-control placeholder-no-fix','placeholder'=>'password','autocomplete'=>'off']) }}
+            <span class="help-block">{{ $errors->first('password')}}</span>
         </div>
     </div>
     <div class="form-actions">
