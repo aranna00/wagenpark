@@ -98,14 +98,6 @@ class AppointmentsTableSeeder extends Seeder {
 			[
 				'date'      => '2015-06-17',
 				'price'     => '148.99',
-				'workshop'  => 1,
-				'car_id'    => Car::findCarByLicense('12-XND-2')->id,
-				'dealer_id' => Dealer::findDealerByName('Schaap')->id,
-				'user_id'   => Sentry::findUserByLogin('h.klaver@rocit.nl')->id,
-			],
-			[
-				'date'      => '2015-06-17',
-				'price'     => '148.99',
 				'workshop'  => 6,
 				'car_id'    => Car::findCarByLicense('12-XND-2')->id,
 				'dealer_id' => Dealer::findDealerByName('Schaap')->id,
