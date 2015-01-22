@@ -26,11 +26,11 @@
                     </ul>
                 </div>
             </div>
-
+            @if(!Session::get('userAccess'))
             <p>
                 <a href="{{ URL::action('CarController@create') }}" class="btn btn-default">Add car</a>
             </p>
-
+            @endif
             <table id="cars" class="table table-striped table-bordered table-hover">
                 <thead>
                     <th>license plate</th>

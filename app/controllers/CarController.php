@@ -9,7 +9,14 @@ class CarController extends \BaseController {
 	 */
 	public function index()
 	{
-		$cars = Car::with('user')->get();
+		if(Session::get('userAccess'))
+		{
+			$cars = Car::whereRaw("user_id = " . Sentry::getUser()->id)->get();
+			$cars->load('user');
+		}
+		else {
+			$cars = Car::with('user')->get();
+		}
 		$title = 'All cars';
 		return View::make('car.index',['cars'=>$cars,'title'=>$title]);
 	}
