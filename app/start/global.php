@@ -95,3 +95,8 @@ require app_path().'/filters.php';
 	{
 		Cache::put('userGroup', Sentry::findGroupByName('user'), 1440);
 	}
+
+	App::missing(function($exception)
+	{
+		return Response::view('errors.missing', ['title'=>'Page not found'], 404);
+	});

@@ -14,6 +14,7 @@
 {{ HTML::style('assets/css/styles/glDatePicker.darkneon.css') }}
 {{ HTML::style('assets/css/styles/glDatePicker.default.css') }}
 {{ HTML::style('assets/css/styles/glDatePicker.flatwhite.css') }}
+{{ HTML::style('template/css/pages/error.css') }}
 
 {{ HTML::script('template/plugins/jquery-1.10.2.min.js') }}
 {{ HTML::script('template/plugins/moment.min.js') }}
