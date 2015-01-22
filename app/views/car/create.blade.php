@@ -55,7 +55,7 @@
                     <div class="form-group @if($errors->first('dealer_id')!=='') has-error @endif">
                         {{ HTML::decode(Form::label('dealer_id','Dealer <span class="required">*</span>',['class'=>'control-label col-md-3'])) }}
                         <div class="col-md-4">
-                            {{ Form::select('dealer_id',[0=>'',1=>'test',2=>'blargh',3=>'poof'],'',['class'=>'form-control']) }}
+                            {{ Form::select('dealer_id',$dealers,'',['class'=>'form-control']) }}
                             <span class="help-block">{{ $errors->first('dealer_id') }}</span>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-actions fluid">
                     {{ Form::submit('Submit',['class'=>'btn blue']) }}
-                    <a href="{{ URL::action('UserController@index') }}" class="btn default">Back</a>
+                    <a href="{{ URL::action('CarController@index') }}" class="btn default">Back</a>
                 </div>
                 {{ Form::close() }}
             </div>

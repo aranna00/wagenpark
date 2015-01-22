@@ -35,9 +35,15 @@ class CarController extends \BaseController {
 		{
 			$users[$user->id] = $user->email;
 		}
+		$dealers_obj = Dealer::all();
+		$dealers[0] = '';
+		foreach($dealers_obj AS $dealer)
+		{
+			$dealers[$dealer->id] = $dealer->name;
+		}
 
 		$title = 'Add new car';
-		return View::make('car.create',['users'=>$users,'title'=>$title]);
+		return View::make('car.create',['users'=>$users,'title'=>$title,'dealers'=>$dealers]);
 	}
 
 
@@ -96,8 +102,14 @@ class CarController extends \BaseController {
 		{
 			$users[$user->id] = $user->email;
 		}
+		$dealers_obj = Dealer::all();
+		$dealers[0] = '';
+		foreach($dealers_obj AS $dealer)
+		{
+			$dealers[$dealer->id] = $dealer->name;
+		}
 
-		return View::make('car.edit',['title'=>$title,'users'=>$users,'car'=>$car]);
+		return View::make('car.edit',['title'=>$title,'users'=>$users,'car'=>$car,'dealers'=>$dealers]);
 	}
 
 
