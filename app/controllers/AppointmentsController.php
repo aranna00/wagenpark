@@ -9,9 +9,16 @@ class AppointmentsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$appointmens = Appointment::with('car','dealer','user')->get();
+		if(Session::get('userAccess')){
+			$appointments = Appointment::whereRaw("user_id = ".Sentry::getUser()->id)->get();
+			$appointments->load('car','dealer','user');
+		}
+		else
+		{
+			$appointments = Appointment::with('car', 'dealer', 'user')->get();
+		}
 		$title = 'All appointments';
-		return View::make('appointment.index',['appointments'=>$appointmens,'title'=>$title]);
+		return View::make('appointment.index',['appointments'=>$appointments,'title'=>$title]);
 	}
 
 

@@ -18,10 +18,11 @@
 	Route::group(['before'=>'Sentry'],function() {
 		Route::resource('home', 'HomeController', ['only' => ['index']]);
 		Route::resource('', 'HomeController', ['only' => ['index']]);
+		Route::resource('appointments','AppointmentsController',['only'=>'index']);
 
 		Route::group(['before'=>'InGroup:admin|dealer'],function(){
 			Route::resource('cars','CarController',['except'=>'show']);
-			Route::resource('appointments','AppointmentsController',['except'=>'show']);
+			Route::resource('appointments','AppointmentsController',['except'=>'show|index']);
 		});
 
 		Route::group(['before'=>'InGroup:admin'],function() {

@@ -26,11 +26,11 @@
                     </ul>
                 </div>
             </div>
-
+            @if(!Session::get('userAccess'))
             <p>
                 <a href="{{ URL::action('AppointmentsController@create') }}" class="btn btn-default">Create appointment</a>
             </p>
-
+            @endif
             <table id="appointments" class="table table-striped table-bordered table-hover">
                 <thead>
                     <th>date</th>
