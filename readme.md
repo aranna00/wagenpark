@@ -14,8 +14,8 @@ benodigd heden:
 2. Pak de [zip](https://github.com/aranna00/wagenpark/archive/master.zip) uit, dit hoeft niet in uw www map
 3. Maak een database aan en zet de naam+wachtwoord in **/app/config/database.php**
  * of maak een database 'wagenpark' aan met het wachtwoord 'Nyc9A4sHWYmUAGMW'
-4. Voer daarna in de uitgepakte folder **composer update** uit
-5. voer **php artisan migrate --seed** uit
+4. Voer daarna,via een console, in de uitgepakte folder **composer update** uit
+5. voer,via een console, **php artisan migrate --seed** uit
 6. als u een eigen webserver heeft kunt u die gebruiken, anders, als u php5.5 of hoger heeft, kunt u **php artisan serve** uitvoeren.
    deze kunt u bereiken met localhost:8000
    
