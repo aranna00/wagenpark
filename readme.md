@@ -18,6 +18,9 @@ benodigd heden:
 5. voer,via een console, **php artisan migrate --seed** uit
 6. als u een eigen webserver heeft kunt u die gebruiken, anders, als u php5.5 of hoger heeft, kunt u **php artisan serve** uitvoeren.
    deze kunt u bereiken met localhost:8000
+7. U kunt inloggen via een **info@{naamdealer}.nl** met het wachtwoord **dealers**, via het email **rkuypers@rocfriesepoort.nl** met het 
+    wachtwoord **admin** of via een gebruiker met **{voorletter}.{achternaam}@rocict.nl** met het wachtwoord **users**.
+8. Deze kunt u terug zien in **app/database/seeds/UserTableSeeder.php**.
    
    
    Overige informatie:

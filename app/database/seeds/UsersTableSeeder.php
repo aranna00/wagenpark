@@ -10,20 +10,29 @@ class UsersTableSeeder extends Seeder {
 		$userGroup      = Sentry::findGroupById(3);
 
 		$user = Sentry::createUser([
-			'email'     => 'aranna00@gmail.com',
-		    'password'  => 'test',
-		    'activated'  => true,
-		    'first_name'=> 'Aran',
-		    'last_name' => 'Kieskamp'
+										'email'     => 'aranna00@gmail.com',
+									    'password'  => 'test',
+									    'activated'  => true,
+									    'first_name'=> 'Aran',
+									    'last_name' => 'Kieskamp'
 		                           ]);
 		$user->addGroup($adminGroup);
 
 		$user = Sentry::createUser([
-		   'email'     => 'info@dealerschaap.nl',
-		   'password'  => 'dealers',
-		   'activated'  => true,
-		   'first_name'=> 'Lisa',
-		   'last_name' => 'Schaap'
+							           'email'     => 'rkuypers@rocfriesepoort.nl',
+							           'password'  => 'admin',
+							           'activated'  => true,
+							           'first_name'=> 'Roger',
+							           'last_name' => 'Kuypers'
+		                           ]);
+		$user->addGroup($adminGroup);
+
+		$user = Sentry::createUser([
+									   'email'     => 'info@dealerschaap.nl',
+									   'password'  => 'dealers',
+									   'activated'  => true,
+									   'first_name'=> 'Lisa',
+									   'last_name' => 'Schaap'
 		]);
 		$user->addGroup($dealerGroup);
 

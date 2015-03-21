@@ -125,6 +125,7 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Intervention\Validation\ValidationServiceProvider',
 		'Khill\Fontawesome\FontAwesomeServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
 	),
 
@@ -193,7 +194,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Sentry'            => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
-
+		'Debugbar' => 'Barryvdh\Debugbar\Facade',
 	),
 
 );

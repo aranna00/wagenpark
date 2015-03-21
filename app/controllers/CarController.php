@@ -15,7 +15,7 @@ class CarController extends \BaseController {
 			$cars->load('user');
 		}
 		else {
-			$cars = Car::with('user')->get();
+			$cars = Car::with('user','dealer')->get();
 		}
 		$title = 'All cars';
 		return View::make('car.index',['cars'=>$cars,'title'=>$title]);

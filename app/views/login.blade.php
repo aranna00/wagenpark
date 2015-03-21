@@ -40,13 +40,6 @@
         {{ Form::submit('login',['class'=>'btn green pull-right']) }}
     </div>
     <div class="login-options"></div>
-    <div class="forget-password">
-        <h4>Wachtwoord vergeten?</h4>
-        <p>
-            Klik <a href="{{ URL::action('UserController@forgotten') }}">hier</a> om je wachtwoord te resetten
-        </p>
-
-    </div>
     {{ Form::close() }}
 </div>
 {{ HTML::script('template/plugins/respond.min.js') }}
